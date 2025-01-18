@@ -1,4 +1,5 @@
 import { IShip } from "../interfaces/IShip.interface.ts";
+import { generateDepartment } from "./generateDepartment.ts";
 
 export const generateShip = (armories: number, commandBridge: number, computerCores: number, engines: number, labs: number, medbays: number): IShip => {
     let ship: IShip = {
@@ -24,6 +25,8 @@ export const generateShip = (armories: number, commandBridge: number, computerCo
         size: "",
         name: ""
     };
+
+    ship.departments.LowerDecks = generateDepartment("LowerDecks", ship.stats);
 
     return ship;
 }
