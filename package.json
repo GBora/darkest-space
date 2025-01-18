@@ -4,12 +4,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "main": "deno run --unstable-sloppy-imports main.ts"
+    "main": "deno run --unstable-sloppy-imports main.ts",
+    "server": "deno run --watch --allow-all --unstable-sloppy-imports server.ts"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "express": "^4.21.2",
     "lodash": "^4.17.21",
     "ts-node": "^10.9.2"
   },

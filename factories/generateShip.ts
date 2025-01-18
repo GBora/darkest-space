@@ -27,6 +27,12 @@ export const generateShip = (armories: number, commandBridge: number, computerCo
     };
 
     ship.departments.LowerDecks = generateDepartment("LowerDecks", ship.stats);
+    ship.departments.CommandBridge = generateDepartment("CommandBridge", ship.stats);
+    ship.departments.Armories = generateDepartment("Armories", ship.stats);
+    ship.departments.ComputerCores = generateDepartment("ComputerCores", ship.stats);
+    ship.departments.Engines = generateDepartment("Engines", ship.stats);
+    ship.departments.Labs = generateDepartment("Labs", ship.stats);
+    ship.departments.MedBays = generateDepartment("MedBays", ship.stats);
 
     return ship;
 }
