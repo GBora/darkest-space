@@ -1,6 +1,6 @@
 export interface IOfficer {
     Rank: number,
-    Gender: number,
+    Gender: number | string,
     RankName: string,
     Position: number,
     PositionName: string,

@@ -27,7 +27,7 @@ export const generateOfficer = (input: Partial<IOfficer>, department?: string): 
     newOfficer.Division = input.Division ? input.Division : getRandomDivsion();
     newOfficer.Species = input.Species ? input.Species : getRandomSpecies();
 
-    newOfficer.FirstName = input.FirstName ? input.FirstName : getRandomFirstNameBySpecies(newOfficer.Species, newOfficer.Gender);
+    newOfficer.FirstName = input.FirstName ? input.FirstName : getRandomFirstNameBySpecies(newOfficer.Species, newOfficer.Gender as number);
     newOfficer.LastName = input.LastName ? input.LastName : getRandomLastNameBySpecies(newOfficer.Species);
     // note an officer created with a predetermined set of specialls right now will not have his specials from his species applied 
     newOfficer.Specials = input.Specials ? input.Specials : getSpecialsBySpecies(newOfficer.Species);
@@ -39,6 +39,10 @@ export const generateOfficer = (input: Partial<IOfficer>, department?: string): 
     newOfficer.PositionName = input.PositionName ? input.PositionName : getPositionName(newOfficer.Position, department);
 
     newOfficer.Specials = applySpecials(newOfficer.Specials, newOfficer.Position, department);
+
+    // make gender a string for readability 
+
+    newOfficer.Gender = newOfficer.Gender === 1 ? "Female" : "Male"
 
     return newOfficer
 }
