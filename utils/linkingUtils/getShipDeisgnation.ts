@@ -75,12 +75,7 @@ export const getShipDesignation = (stats: IShipRatings): string => {
     let ratingsSorted = _.orderBy(ratings, 'score', 'desc');
     let highest = ratingsSorted[0].name;
     let secondHighest = ratingsSorted[1].name;
-    console.log(highest);
-    console.log(secondHighest);
     combos.forEach(role => {
-        console.log(role.combo);
-        console.log(role.combo.includes(secondHighest));
-        console.log(role.combo.includes(highest))
         if (role.combo.includes(highest) && role.combo.includes(secondHighest)) {
             designation = role.name;
         }
