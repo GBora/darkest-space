@@ -49,6 +49,9 @@ export const generateDepartment = (departmentName: string, shipRankings: IShipRa
 
     let officerCountDown: number = shipRankings[departmentName];
 
+    // an department of size 0 should have an commanding officer of rank 2
+    officerCountDown += 2;
+
     // add department head
     department.officers.push(generateOfficer({
         Rank: officerCountDown,
