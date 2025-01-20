@@ -14,6 +14,8 @@ export interface IShip {
     }
     class: string,
     designation: string,
-    size: string
-    name: string
+    size: string,
+    name: string,
+    merits: number,
+    demerits: number
 }

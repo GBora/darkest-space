@@ -1,4 +1,7 @@
 import { IShip } from "../interfaces/IShip.interface.ts";
+import { getShipDesignation } from "../utils/linkingUtils/getShipDeisgnation.ts";
+import { getShipSize } from "../utils/linkingUtils/getShipSize.ts";
+import { getRandomClassName } from "../utils/randomSelects/getRandomClassName.ts";
 import { generateDepartment } from "./generateDepartment.ts";
 
 export const generateShip = (armories: number, commandBridge: number, computerCores: number, engines: number, labs: number, medbays: number): IShip => {
@@ -23,7 +26,9 @@ export const generateShip = (armories: number, commandBridge: number, computerCo
         class: "",
         designation: "",
         size: "",
-        name: ""
+        name: "",
+        merits: 0,
+        demerits: 0
     };
 
     ship.departments.LowerDecks = generateDepartment("LowerDecks", ship.stats);
@@ -33,6 +38,10 @@ export const generateShip = (armories: number, commandBridge: number, computerCo
     ship.departments.Engines = generateDepartment("Engines", ship.stats);
     ship.departments.Labs = generateDepartment("Labs", ship.stats);
     ship.departments.MedBays = generateDepartment("MedBays", ship.stats);
+
+    ship.size = getShipSize(ship.stats);
+    ship.designation = getShipDesignation(ship.stats);
+    ship.class = getRandomClassName();
 
     return ship;
 }
